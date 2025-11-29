@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import Link from "next/link"
 import { Menu, ArrowRight } from "lucide-react"
 
@@ -13,18 +14,21 @@ import {
 } from "@/components/ui/sheet"
 
 export function MenuToggle() {
+  const [open, setOpen] = React.useState(false)
+
+  // Enlaces corregidos a productos Apple reales
   const navItems = [
     { label: "Inicio", href: "/" },
-    { label: "iPhones Usados Premium", href: "/iphones-usados-premium", hasArrow: true },
-    { label: "iPhones Nuevos", href: "/iphones-nuevos", hasArrow: true },
-    { label: "Macbooks", href: "/macbooks", hasArrow: true },
-    { label: "iPads", href: "/ipads", hasArrow: true },
-    { label: "AirPods", href: "/airpods" },
-    { label: "Contacto", href: "/contacto" },
+    { label: "iPhones", href: "/catalogo?category=iphone", hasArrow: true },
+    { label: "Macbooks", href: "/catalogo?category=mac", hasArrow: true }, // 'mac' matchea con 'MacBook'
+    { label: "iPads", href: "/catalogo?category=ipad", hasArrow: true },
+    { label: "Apple Watch", href: "/catalogo?category=watch", hasArrow: true },
+    { label: "AirPods", href: "/catalogo?category=airpods", hasArrow: true },
+    { label: "Contacto", href: "/#contacto" },
   ]
 
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button variant="outline" size="icon" aria-label="Alternar menú de navegación">
           <Menu className="h-6 w-6" />
@@ -41,6 +45,7 @@ export function MenuToggle() {
             <Link
               key={item.label}
               href={item.href}
+              onClick={() => setOpen(false)}
               className="flex items-center justify-between px-6 py-3 text-base font-normal text-gray-800 hover:bg-gray-50 transition-colors duration-200"
             >
               <span>{item.label}</span>

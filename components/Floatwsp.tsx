@@ -7,11 +7,11 @@ interface WhatsappFloatingButtonProps {
 }
 
 export default function WhatsappFloatingButton({message, className }: WhatsappFloatingButtonProps) {
-  const whatsappLink = `https://wa.me/${5492213183837}${message ? `?text=${encodeURIComponent(message)}` : ""}`
+  const whatsappLink = `https://wa.me/${3}${message ? `?text=${encodeURIComponent(message)}` : ""}`
 
   return (
     <a
-      href={whatsappLink}
+      href="/"
       target="_blank"
       rel="noopener noreferrer"
       className={cn(

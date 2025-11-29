@@ -1,21 +1,20 @@
-import { MapPin, Clock, User, ShieldCheck, Calendar, Store } from "lucide-react"
+import { MapPin, Clock, User, ShieldCheck, Calendar } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function StoreVisitSection() {
   return (
     <section className="w-full px-4 py-16 md:py-24 bg-background">
       <div className="max-w-7xl mx-auto">
-        {/* Hero Header */}
+        {/* ... (resto del código del header y grid de features igual) ... */}
         <div className="text-center mb-16 md:mb-20">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-foreground mb-6 text-pretty">
             Visita nuestro showroom
           </h1>
-         
         </div>
 
-        {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-16">
-          <div className="group">
+            {/* ... (contenido de los items igual) ... */}
+             <div className="group">
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 w-12 h-12 rounded-full bg-foreground/5 flex items-center justify-center group-hover:bg-foreground/10 transition-colors duration-300">
                 <MapPin className="w-6 h-6 text-foreground" strokeWidth={1.5} />
@@ -103,16 +102,15 @@ export function StoreVisitSection() {
           </div>
         </div>
 
-        {/* CTA Buttons */}
+        {/* CTA Buttons - AQUÍ APLICAMOS EL CAMBIO */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
             size="lg"
-            className="w-full sm:w-auto text-base md:text-lg px-8 py-6 rounded-full font-medium hover:scale-105 transition-transform duration-200"
+            className="w-full sm:w-auto text-base md:text-lg px-8 py-6 rounded-full font-medium bg-gray-900 text-white hover:bg-blue-600 hover:scale-105 transition-all duration-300"
           >
             <Calendar className="w-5 h-5 mr-2" strokeWidth={2} />
             Agendar Visita
           </Button>
-        
         </div>
       </div>
     </section>

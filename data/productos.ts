@@ -13,7 +13,7 @@ export interface ProductosTarjeta {
 export const productos: ProductosTarjeta[] = [
   {
     id: 1,
-    nombre: "Iphone x",
+    nombre: "iPhone X",
     precio: 299999,
     precioContado: 275999,
     imagen: "/images/iphone.png",
@@ -24,7 +24,7 @@ export const productos: ProductosTarjeta[] = [
   },
   {
     id: 2,
-    nombre: "Iphone xs",
+    nombre: "iPhone XS",
     precio: 899999,
     precioContado: 809999,
     imagen: "/images/iphone.png",
@@ -34,7 +34,7 @@ export const productos: ProductosTarjeta[] = [
   },
   {
     id: 3,
-    nombre: "Iphone 13 pro",
+    nombre: "iPhone 13 Pro",
     precio: 45999,
     precioContado: 42829,
     imagen: "/images/iphone.png",
@@ -45,20 +45,20 @@ export const productos: ProductosTarjeta[] = [
   },
   {
     id: 4,
-    nombre: "ipad Pro 12 pulgadas",
+    nombre: "iPad Pro 12.9",
     precio: 199999,
     precioContado: 183999,
-    imagen: "/images/iphone.png",
+    imagen: "/images/ipad.jpg",
     cuotas: "12 cuotas",
     envioGratis: true,
     agotado: true,
   },
   {
     id: 5,
-    nombre: "Apple watch",
+    nombre: "Apple Watch Series 8",
     precio: 89999,
     precioContado: 84599,
-    imagen: "/images/iphone.png",
+    imagen: "/images/air.png", // Usamos una imagen genérica si no tienes la de watch
     descuento: 10,
     cuotas: "9 cuotas",
     envioGratis: false,
@@ -66,20 +66,20 @@ export const productos: ProductosTarjeta[] = [
   },
   {
     id: 6,
-    nombre: "Cámara Digital 4K",
-    precio: 549999,
-    precioContado: 500499,
-    imagen: "/images/iphone.png",
-    cuotas: "15 cuotas",
+    nombre: "AirPods Pro (2da Gen)", // Reemplazamos Cámara por AirPods
+    precio: 54999,
+    precioContado: 50000,
+    imagen: "/images/airpods.png",
+    cuotas: "6 cuotas",
     envioGratis: true,
     agotado: false,
   },
   {
     id: 7,
-    nombre: "MACBOOK PRO",
+    nombre: "MacBook Pro M2",
     precio: 25999,
     precioContado: 24699,
-    imagen: "/images/iphone.png",
+    imagen: "/images/macbook.jpg",
     descuento: 25,
     cuotas: "3 cuotas",
     envioGratis: false,
@@ -87,10 +87,10 @@ export const productos: ProductosTarjeta[] = [
   },
   {
     id: 8,
-    nombre: "Monitor 4K 27 pulgadas",
+    nombre: "AirPods Max", // Reemplazamos Monitor por AirPods Max
     precio: 179999,
     precioContado: 165599,
-    imagen: "/images/iphone.png",
+    imagen: "/images/airpods.png",
     cuotas: "12 cuotas",
     envioGratis: true,
     agotado: false,
