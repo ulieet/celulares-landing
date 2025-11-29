@@ -1,12 +1,13 @@
-import Navbar from "@/components/navigation/navbar"
-import Hero from "@/components/navigation/hero"
-import Features from "@/components/navigation/features"
-import Contact from "@/components/navigation/contact"
-import Footer from "@/components/navigation/footer"
-import Grids from "@/components/navigation/herogrids"
-import Slider from "@/components/navigation/hero-slide-content"
 
-import ProductGrid from "@/components/navigation/productgrid"
+import Hero from "@/components/hero"
+import Contact from "@/components/contact"
+import Footer from "@/components/footer"
+import Grids from "@/components/herogrids"
+import Slider from "@/components/hero-slide-content"
+import { StoreVisitSection } from "@/components/store-visit-section"
+import ProductGrid from "@/components/productgrid"
+import { CategoriesGrid } from "@/components/categories-grid"
+
 
 export default function HomePage() {
   return (
@@ -16,11 +17,12 @@ export default function HomePage() {
       
       <Hero />
       <Grids/>
-      <ProductGrid/>
-      <Features />
-      
+      <CategoriesGrid/>
 
+      <ProductGrid/>
+      
       <Contact />
+      <StoreVisitSection/>
       <Footer />
     </div>
   )

@@ -2,9 +2,9 @@ import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 
 const images = [
-  "/images/rapido.png",
-  "/images/preciso.png",
-  "/images/seguro.png",
+  "/images/trade.png",
+  "/images/applelogo.png",
+  "/images/airpods.png",
 ];
 
 export default function Grids() {

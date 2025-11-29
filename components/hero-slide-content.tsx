@@ -15,7 +15,7 @@ export default function SlidingBanner({
 }: SlidingBannerProps) {
   return (
     <>
-      {/* Estilos de animación incluidos en el componente */}
+     
       <style jsx>{`
         @keyframes marquee {
           0% {

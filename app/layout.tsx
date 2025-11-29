@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import './globals.css'
-import Floatwsp from "@/components/navigation/Floatwsp"
+import Floatwsp from "@/components/Floatwsp"
 import Navbar from "@/components/navigation/navbar"
 
 export const metadata: Metadata = {
@@ -29,9 +29,13 @@ export default function RootLayout({
         `}</style>
 
       </head>
-      <Navbar />
-      <body>{children}</body>
-      <Floatwsp/>
+      
+      <body>
+        <Navbar />
+        {children}
+        <Floatwsp/>
+        </body>
+    
     </html>
   )
 }
