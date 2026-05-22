@@ -35,7 +35,12 @@ export function MenuToggle() {
         </Button>
       </SheetTrigger>
 
-      <SheetContent side="left" className="w-full sm:max-w-xs p-0">
+      {/* AQUÍ SE AÑADIÓ LA SOLUCIÓN: onCloseAutoFocus */}
+      <SheetContent 
+        side="left" 
+        className="w-full sm:max-w-xs p-0"
+        onCloseAutoFocus={(event) => event.preventDefault()}
+      >
         <SheetHeader className="flex flex-row items-center justify-between p-10">
           <SheetTitle className="sr-only">Menú de navegación</SheetTitle>
         </SheetHeader>

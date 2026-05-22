@@ -12,33 +12,31 @@ function CatalogoContent() {
   
   // Estado para las categorías seleccionadas
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
+  // Estado para los estados (nuevo/reacondicionado)
+  const [selectedConditions, setSelectedConditions] = useState<string[]>([])
+  // Estado para el rango de precio
+  const [priceRange, setPriceRange] = useState<{ min: number | null, max: number | null }>({ min: null, max: null })
 
-  // 1. Al cargar, leemos la URL y soportamos múltiples categorías separadas por comas
+  // 1. Al cargar, leemos la URL
   useEffect(() => {
     const categoryParam = searchParams.get("category")
     if (categoryParam) {
-      // Convertimos "iphone,mac" en ["iphone", "mac"]
       setSelectedCategories(categoryParam.split(','))
     } else {
       setSelectedCategories([])
     }
   }, [searchParams])
 
-  // 2. Función corregida para SELECCIÓN MÚLTIPLE
+  // Manejo de categorías
   const handleCategoryChange = (category: string) => {
     let newCategories: string[]
-
     if (selectedCategories.includes(category)) {
-      // Si ya estaba seleccionada, la sacamos del array
       newCategories = selectedCategories.filter((c) => c !== category)
     } else {
-      // Si no estaba, la agregamos al array existente
       newCategories = [...selectedCategories, category]
     }
-    
     setSelectedCategories(newCategories)
 
-    // 3. Actualizamos la URL uniendo las categorías con comas
     if (newCategories.length > 0) {
         router.push(`/catalogo?category=${newCategories.join(',')}`, { scroll: false })
     } else {
@@ -46,14 +44,35 @@ function CatalogoContent() {
     }
   }
 
+  // Manejo de estado (Nuevo/Reacondicionado)
+  const handleConditionChange = (condition: string) => {
+    if (selectedConditions.includes(condition)) {
+      setSelectedConditions(selectedConditions.filter((c) => c !== condition))
+    } else {
+      setSelectedConditions([...selectedConditions, condition])
+    }
+  }
+
+  const handlePriceChange = (min: number | null, max: number | null) => {
+    setPriceRange({ min, max })
+  }
+
   // Filtramos los productos
   const filteredProducts = productos.filter((producto) => {
-    if (selectedCategories.length === 0) return true;
+    // Filtro por categoría
+    const matchesCategory = selectedCategories.length === 0 || 
+      selectedCategories.some(cat => producto.nombre.toLowerCase().includes(cat));
     
-    // Mostramos el producto si coincide con CUALQUIERA de las categorías seleccionadas
-    return selectedCategories.some(cat => 
-        producto.nombre.toLowerCase().includes(cat)
-    )
+    // Filtro por estado
+    const matchesCondition = selectedConditions.length === 0 || 
+      selectedConditions.includes(producto.estado);
+
+    // Filtro por precio (soporta min o max opcionalmente)
+    const min = priceRange.min ?? 0;
+    const max = priceRange.max ?? Infinity;
+    const matchesPrice = producto.precio >= min && producto.precio <= max;
+
+    return matchesCategory && matchesCondition && matchesPrice;
   })
 
   return (
@@ -61,9 +80,14 @@ function CatalogoContent() {
       <FilterSidebar 
         className="mt-0"
         selectedCategories={selectedCategories} 
+        selectedConditions={selectedConditions}
         onCategoryChange={handleCategoryChange}
+        onConditionChange={handleConditionChange}
+        onPriceChange={handlePriceChange}
         onClearFilters={() => {
             setSelectedCategories([])
+            setSelectedConditions([])
+            setPriceRange({ min: null, max: null })
             router.push('/catalogo', { scroll: false })
         }}
       />
@@ -79,7 +103,24 @@ function CatalogoContent() {
           </p>
         </div>
   
-        <ProductGrid products={filteredProducts} />
+        {filteredProducts.length > 0 ? (
+          <ProductGrid products={filteredProducts} />
+        ) : (
+          <div className="py-20 text-center">
+            <p className="text-red-500 text-2xl font-light">No se encontraron productos con los filtros seleccionados.</p>
+            <button 
+              onClick={() => {
+                setSelectedCategories([])
+                setSelectedConditions([])
+                setPriceRange({ min: null, max: null })
+                router.push('/catalogo', { scroll: false })
+              }}
+              className="mt-4 text-gray-500 hover:text-gray-800 underline transition-colors"
+            >
+              Limpiar todos los filtros
+            </button>
+          </div>
+        )}
       </main>
     </div>
   )

@@ -1,4 +1,3 @@
-// components/Hero.tsx
 "use client";
 
 import { useState } from "react";
@@ -24,8 +23,8 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-full h-[600px] overflow-hidden">
-      <AnimatePresence initial={false} mode="wait">
+<section className="relative w-full h-[300px] sm:h-[400px] md:h-[600px] overflow-hidden">      
+  <AnimatePresence initial={false} mode="wait">
         <motion.div
           key={page}
           className="absolute w-full h-full"

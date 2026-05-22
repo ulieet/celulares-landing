@@ -8,6 +8,7 @@ export interface ProductosTarjeta {
   envioGratis: boolean
   agotado: boolean
   precioContado?: number
+  estado: "nuevo" | "reacondicionado"
 }
 
 export const productos: ProductosTarjeta[] = [
@@ -21,6 +22,7 @@ export const productos: ProductosTarjeta[] = [
     cuotas: "12 cuotas",
     envioGratis: true,
     agotado: false,
+    estado: "reacondicionado",
   },
   {
     id: 2,
@@ -31,6 +33,7 @@ export const productos: ProductosTarjeta[] = [
     cuotas: "18 cuotas",
     envioGratis: true,
     agotado: false,
+    estado: "reacondicionado",
   },
   {
     id: 3,
@@ -42,6 +45,7 @@ export const productos: ProductosTarjeta[] = [
     cuotas: "6 cuotas",
     envioGratis: true,
     agotado: false,
+    estado: "nuevo",
   },
   {
     id: 4,
@@ -52,27 +56,30 @@ export const productos: ProductosTarjeta[] = [
     cuotas: "12 cuotas",
     envioGratis: true,
     agotado: true,
+    estado: "nuevo",
   },
   {
     id: 5,
     nombre: "Apple Watch Series 8",
     precio: 89999,
     precioContado: 84599,
-    imagen: "/images/air.png", // Usamos una imagen genérica si no tienes la de watch
+    imagen: "/images/air.png", 
     descuento: 10,
     cuotas: "9 cuotas",
     envioGratis: false,
     agotado: false,
+    estado: "nuevo",
   },
   {
     id: 6,
-    nombre: "AirPods Pro (2da Gen)", // Reemplazamos Cámara por AirPods
+    nombre: "AirPods Pro (2da Gen)", 
     precio: 54999,
     precioContado: 50000,
     imagen: "/images/airpods.png",
     cuotas: "6 cuotas",
     envioGratis: true,
     agotado: false,
+    estado: "nuevo",
   },
   {
     id: 7,
@@ -84,15 +91,17 @@ export const productos: ProductosTarjeta[] = [
     cuotas: "3 cuotas",
     envioGratis: false,
     agotado: false,
+    estado: "nuevo",
   },
   {
     id: 8,
-    nombre: "AirPods Max", // Reemplazamos Monitor por AirPods Max
+    nombre: "AirPods Max", 
     precio: 179999,
     precioContado: 165599,
     imagen: "/images/airpods.png",
     cuotas: "12 cuotas",
     envioGratis: true,
     agotado: false,
+    estado: "nuevo",
   },
 ]

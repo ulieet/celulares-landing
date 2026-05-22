@@ -32,14 +32,6 @@ interface ProductGridProps {
 
 export default function ProductGrid({ products }: ProductGridProps) {
   
-  if (!products || products.length === 0) {
-    return (
-      <div className="text-center py-20 bg-gray-50">
-        <h2 className="text-2xl font-bold text-gray-400">No hay productos que coincidan con tu búsqueda.</h2>
-      </div>
-    )
-  }
-
   return (
     <div className="bg-gray-50 p-6 md:p-10">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-7xl mx-auto">

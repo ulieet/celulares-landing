@@ -1,3 +1,4 @@
+// app/page.tsx
 import Hero from "@/components/hero"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
@@ -7,12 +8,14 @@ import { StoreVisitSection } from "@/components/store-visit-section"
 import ProductGrid from "@/components/productgrid"
 import { CategoriesGrid } from "@/components/categories-grid"
 import { productos } from "@/data/productos" 
+import ScrollToHash from "@/components/scroll-to-hash" 
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
-      <Slider/>
+      <ScrollToHash /> 
       
+      <Slider/>
       <Hero />
       <Grids/>
       <CategoriesGrid/>
