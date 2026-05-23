@@ -21,7 +21,6 @@ La interfaz se ha desarrollado utilizando componentes reutilizables y altamente 
 * **Iconografía:** Lucide React y React Icons.
 * **Formularios:** Validados y gestionados con React Hook Form y Zod.
 * **Tipografía:** Fuente Geist integrada.
-* **Temas:** Soporte para Dark/Light mode mediante `next-themes`.
 * **Notificaciones:** Sonner y Radix Toast para alertas en pantalla.
 * **Carruseles:** Construidos nativamente con Embla Carousel React.
 
